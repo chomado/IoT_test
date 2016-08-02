@@ -278,10 +278,10 @@ namespace PinKitIoTHubApp
         private void SetupIoTHub()
         {
 #if (ACCESS_IOT_HUB)
-            iotHubConnectionString = "HostName=" + IoTHoLConfig.IoTHubEndpoint + ";DeviceId=" + IoTHoLConfig.DeviceKey + ";SharedAccessKey=" + IoTHoLConfig.DeviceKey;
+            iotHubConnectionString = "HostName=" + IoTHoLConfig.IoTHubEndpoint + ";DeviceId=" + deviceId + ";SharedAccessKey=" + IoTHoLConfig.DeviceKey;
             try
             {
-                deviceClient = DeviceClient.CreateFromConnectionString(iotHubConnectionString, TransportType.Http1);
+                deviceClient = DeviceClient.CreateFromConnectionString(iotHubConnectionString, TransportType.Http1); // ‚±‚±‚ÅŒq‚ª‚é
                 BlinkPinKitLED(PinKit.BoardFullColorLED.Colors.Green, 1000, 500, 3);
                 ReceiveCommands();
             }
