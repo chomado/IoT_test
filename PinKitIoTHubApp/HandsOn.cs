@@ -1,5 +1,5 @@
 //#define ACCESS_MOBILE_SERVICE
-//#define ACCESS_IOT_HUB
+#define ACCESS_IOT_HUB
 
 using System;
 using Microsoft.SPOT;
@@ -278,7 +278,7 @@ namespace PinKitIoTHubApp
         private void SetupIoTHub()
         {
 #if (ACCESS_IOT_HUB)
-            iotHubConnectionString = "HostName=" + IoTHoLConfig.IoTHubEndpoint + ";DeviceId=" + IoTHoLConfig.DeviceKey + ";SharedAccessKey=" + deviceKey;
+            iotHubConnectionString = "HostName=" + IoTHoLConfig.IoTHubEndpoint + ";DeviceId=" + IoTHoLConfig.DeviceKey + ";SharedAccessKey=" + IoTHoLConfig.DeviceKey;
             try
             {
                 deviceClient = DeviceClient.CreateFromConnectionString(iotHubConnectionString, TransportType.Http1);
